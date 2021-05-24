@@ -1,9 +1,9 @@
 import express from "express";
 
-import { NewController } from "../controllers/users.js";
+import { getAll } from "../controllers/users.js";
 
 const router = express.Router();
 
-router.get("/", NewController);
+router.get("/", getAll);
 
 export default router;
