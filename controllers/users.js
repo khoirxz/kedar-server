@@ -1,3 +1,5 @@
+import { validationResult } from "express-validator";
+
 import Users from "../model/user.js";
 
 export const getAllUsers = async (req, res) => {
@@ -17,7 +19,9 @@ export const getUser = async (req, res) => {
       where: { id },
     });
 
-    res.status(201).send(user[0]);
+    return !user.length
+      ? res.status(409).json({ message: "data not valid" })
+      : res.status(201).send(user[0]);
   } catch (error) {
     console.log(error);
   }
@@ -25,7 +29,7 @@ export const getUser = async (req, res) => {
 
 export const createUser = async (req, res) => {
   try {
-    await Users.create(req.body);
+    await Users.create({ ...req.body, created_at: new Date().toISOString() });
 
     res.status(201).json({
       message: "User Created",
