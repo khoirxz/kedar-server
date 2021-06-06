@@ -1,5 +1,5 @@
 export const configDB = {
-  HOST: "103.31.38.139",
+  HOST: "localhost",
   USER: "root",
   PASSWORD: "KedarSukses2021",
   DB: "kedar",
