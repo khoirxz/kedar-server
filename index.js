@@ -3,6 +3,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 
 import db from "./model/index.js";
+import indexRouters from "./routes/index.js";
 import userRouters from "./routes/users.js";
 
 const app = express();
@@ -20,6 +21,7 @@ try {
 }
 
 // router users
+app.use("/api", indexRouters);
 app.use("/api/user", userRouters);
 
 app.listen(PORT, () => {

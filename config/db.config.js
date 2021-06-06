@@ -1,7 +1,7 @@
 export const configDB = {
-  HOST: "localhost",
+  HOST: "103.31.38.139",
   USER: "root",
-  PASSWORD: "root",
+  PASSWORD: "KedarSukses2021",
   DB: "kedar",
   dialect: "mysql",
   pool: {
