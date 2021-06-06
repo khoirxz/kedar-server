@@ -17,8 +17,8 @@ router.get("/:id", isAuth, getUser);
 router.put("/:id", isAuth, isAuthrorize, updateUser);
 
 //login user
-router.post("/auth", loginUser);
+router.post("/login", loginUser);
 // signup user
-router.post("/", userValidation(), userHandle, createUser);
+router.post("/signUp", userValidation(), userHandle, createUser);
 
 export default router;
