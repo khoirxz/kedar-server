@@ -1,8 +1,8 @@
 export const configDB = {
-  HOST: "localhost", // set to localhost, if you want to push to git and pull to server
-  USER: "root",
-  PASSWORD: "KedarSukses2021",
-  DB: "kedar",
+  HOST: procces.env.HOST, // set to localhost, if you want to push to git and pull to server
+  USER: process.env.USER,
+  PASSWORD: process.env.PASSWORD,
+  DB: process.env.DBNAME,
   dialect: "mysql",
   pool: {
     max: 5,

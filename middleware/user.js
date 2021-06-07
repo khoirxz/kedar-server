@@ -12,7 +12,7 @@ export const userValidation = () => {
       .notEmpty()
       .isLength({ min: 7 })
       .withMessage("password harus diisi minimal 7 karakter"),
-    body("role").notEmpty().isNumeric(),
+    body("role").isNumeric("1"),
     body("no_identitas")
       .notEmpty()
       .withMessage("nomer identitas harus diisi contoh: NIM, NISN dll"),

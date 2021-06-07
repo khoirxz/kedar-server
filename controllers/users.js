@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 
 import Users from "../model/user.js";
 
+// Auth
 export const getAllUsers = async (req, res) => {
   try {
     const users = await Users.findAll();
@@ -13,6 +14,7 @@ export const getAllUsers = async (req, res) => {
   }
 };
 
+// Auth
 export const getUser = async (req, res) => {
   const { id } = req.params;
   try {
@@ -28,6 +30,7 @@ export const getUser = async (req, res) => {
   }
 };
 
+// Auth
 export const updateUser = async (req, res) => {
   const { id } = req.params;
 

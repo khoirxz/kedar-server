@@ -31,11 +31,13 @@ const Users = db.define(
     no_identitas: {
       type: DataTypes.INTEGER(11),
     },
-    created_at: {
+    createdAt: {
       type: DataTypes.DATE,
+      field: "created_at",
     },
-    updated_at: {
+    updatedAt: {
       type: DataTypes.DATE,
+      field: "updated_at",
     },
   },
   { freezeTableName: true }
