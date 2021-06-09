@@ -12,7 +12,6 @@ export const userValidation = () => {
       .notEmpty()
       .isLength({ min: 7 })
       .withMessage("password harus diisi minimal 7 karakter"),
-    body("role").isNumeric("1"),
     body("no_identitas")
       .notEmpty()
       .withMessage("nomer identitas harus diisi contoh: NIM, NISN dll"),
@@ -21,7 +20,13 @@ export const userValidation = () => {
 
 export const userHandle = (req, res, next) => {
   const error = validationResult(req);
+  const { password, confirmPassword, role } = req.body;
 
+  if (password !== confirmPassword) {
+    return res
+      .status(409)
+      .json({ type: "error", on: "password", message: "password tidak sama" });
+  }
   if (!error.isEmpty()) {
     return res.status(400).json({ error });
   }

@@ -71,14 +71,14 @@ export const createUser = async (req, res) => {
 
 //Login Route
 export const loginUser = async (req, res) => {
-  const { username, password } = req.body;
+  const { email, password } = req.body;
   const accessTokenSecret = "kedarsukses";
 
-  const user = await Users.findOne({ where: { username } });
+  const user = await Users.findOne({ where: { email } });
 
   try {
     if (!user) {
-      res.status(409).json({ message: "username not found" });
+      res.status(409).json({ message: "email not found" });
     } else {
       const checkPassword = await bcrypt.compare(password, user.password);
       if (checkPassword) {
@@ -88,7 +88,7 @@ export const loginUser = async (req, res) => {
         );
         res.status(200).json({ message: "login sukses", token });
       } else {
-        res.status(409).json({ message: "check username or password" });
+        res.status(409).json({ message: "check email or password" });
       }
     }
   } catch (error) {
