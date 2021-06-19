@@ -1,7 +1,7 @@
 export const configDB = {
   HOST: "localhost", // set to localhost, if you want to push to git and pull to server
   USER: "root",
-  PASSWORD: "KedarSukses2021",
+  PASSWORD: "root",
   DB: "kedar",
   dialect: "mysql",
   pool: {
