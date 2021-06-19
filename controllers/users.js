@@ -60,9 +60,11 @@ export const createUser = async (req, res) => {
       created_at: new Date().toISOString(),
     });
 
-    res.status(201).json({
+    const {password, confirmPassword, ...result} = req.body
+
+    return res.status(200).json({
       message: "User Created",
-      data: req.body,
+      data: result,
     });
   } catch (error) {
     console.log(error);
@@ -78,7 +80,7 @@ export const loginUser = async (req, res) => {
 
   try {
     if (!user) {
-      res.status(409).json({ message: "email not found" });
+      return res.status(409).json({ message: "username not found" });
     } else {
       const checkPassword = await bcrypt.compare(password, user.password);
       if (checkPassword) {
@@ -86,9 +88,9 @@ export const loginUser = async (req, res) => {
           { id: user.id, role: user.role },
           accessTokenSecret
         );
-        res.status(200).json({ message: "login sukses", token });
+        return res.status(200).json({ message: "login sukses", token });
       } else {
-        res.status(409).json({ message: "check email or password" });
+        return res.status(409).json({ message: "check username or password" });
       }
     }
   } catch (error) {
