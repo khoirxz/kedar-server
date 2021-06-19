@@ -10,11 +10,8 @@ export const userValidation = () => {
       .withMessage("Nama harus berupa huruf minimal 3"),
     body("password")
       .notEmpty()
-      .isLength({ min: 7 })
-      .withMessage("password harus diisi minimal 7 karakter"),
-    body("no_identitas")
-      .notEmpty()
-      .withMessage("nomer identitas harus diisi contoh: NIM, NISN dll"),
+      .isLength({ min: 6 })
+      .withMessage("password harus diisi minimal 6 karakter"),
   ];
 };
 
