@@ -8,6 +8,6 @@ import { isAuthrorize, isAuth } from "../middleware/auth.js";
 
 const router = express.Router();
 
-router.get("/check_version", isAuth, checkVersion);
+router.get("/check_version", checkVersion);
 
 export default router;
